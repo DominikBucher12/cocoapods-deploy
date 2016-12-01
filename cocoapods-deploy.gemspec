@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = "cocoapods-deploy"
-  s.version = "0.0.10"
+  s.version = "0.0.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
@@ -11,13 +11,16 @@ Gem::Specification.new do |s|
   s.date = "2016-03-07"
   s.description = "Implement's bundler's --deployment functionality in CocoaPods."
   s.email = ["james@supmenow.com"]
-  s.files = [".gitignore", "Gemfile", "LICENSE.txt", "README.md", "Rakefile", "cocoapods-deploy.gemspec", "lib/cocoapods-deploy/command.rb", "lib/cocoapods-deploy/command/deploy.rb", "lib/cocoapods-deploy/deploy_transformer.rb", "lib/cocoapods-deploy/deploy_analyzer.rb", "lib/cocoapods-deploy/deploy_downloader.rb", "lib/cocoapods-deploy/deploy_installer.rb", "lib/cocoapods-deploy/gem_version.rb", "lib/cocoapods-deploy.rb", "lib/cocoapods_plugin.rb", "spec/spec_helper.rb"]
+  # - Fix this its awful why do we need to declare everything
+  s.files = [".gitignore", "Gemfile", "LICENSE.txt", "README.md", "Rakefile", "cocoapods-deploy.gemspec", "lib/cocoapods-deploy/command.rb", "lib/cocoapods-deploy/command/deploy.rb", "lib/cocoapods-deploy/deploy_transformer.rb", "lib/cocoapods-deploy/deploy_analyzer.rb", "lib/cocoapods-deploy/deploy_downloader.rb", "lib/cocoapods-deploy/deploy_installer.rb", "lib/cocoapods-deploy/gem_version.rb", "lib/cocoapods-deploy.rb", "lib/cocoapods_plugin.rb", "spec/spec_helper.rb", "lib/cocoapods-deploy/patches/write_lockfile_patch.rb"]
   s.homepage = "https://github.com/jcampbell05/cocoapods-deploy"
   s.licenses = ["MIT"]
   s.rubygems_version = "2.4.8"
   s.summary = "Implement's bundler's --deployment functionality in CocoaPods."
   s.test_files = ["spec/command/deploy_spec.rb", "spec/spec_helper.rb"]
 
+  # - Simplify this
+  # - Cocoapods 1.0 only
   if s.respond_to? :specification_version then
     s.specification_version = 4
 

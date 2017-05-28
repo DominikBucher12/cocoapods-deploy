@@ -3,10 +3,12 @@ module Pod
 
     attr_accessor :lockfile
     attr_accessor :sandbox
+    attr_accessor :metadata
 
     def initialize(lockfile, sandbox)
       @lockfile = lockfile
       @sandbox = sandbox
+      @metadata = Source::Metadata.new({'prefix_lengths' => [1, 1, 1]})
     end
 
     def transform_podfile(podfile)
@@ -64,7 +66,8 @@ module Pod
     end
 
     def podspec_url(pod, version)
-      "{root-url}/#{pod}/#{version}/#{pod}"
+      path_fragment = metadata.path_fragment(pod)
+      "{root-url}/#{path_fragment}/#{version}/#{pod}"
     end
 
     def collect_podspec_dependencies(name_or_hash)
